@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="above"></p>
+  <br>
+  <input type="text" id="txt">
+  <br>
+  <br>
+  <button id="btn" onclick="onclk()"> click me :-) </button>
+  
+  <script>
+    function onclk(){
+      const mesg=document.getElementById("above");
+      mesg.innerHTML=" ";
+      let value =document.getElementById("txt").value;
+      try{
+        if(value.trim==(" ")) throw "empty";
+        if(isNaN(value)) throw "is not a number";
+        value=Number(value);
+        if(value>5) throw "high"
+        if(value<5) throw "low";
+      }
+      catch(err){
+        mesg.innerHTML="the input= " + err
+      }
+    }
+    onclk();
+  </script>
+  
+</body>
+</html>
